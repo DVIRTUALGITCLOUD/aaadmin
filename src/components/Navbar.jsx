@@ -14,7 +14,7 @@ import { useStateContext } from '../contexts/ContextProvider';
 
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
- <TooltipComponent content={title} position="BottomCenter">
+  <TooltipComponent content={title} position="BottomCenter">
     <button
       type="button"
       onClick={() => customFunc()}
@@ -33,20 +33,41 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 
 
 const Navbar = () => {
-    const { activeMenu, setActiveMenu, handleClick, handleActiveMenu, isClicked, setIsClicked } =
-    useStateContext();
+   const { activeMenu, setActiveMenu, isClicked, handleClick, screenSize,  setScreenSize } = useStateContext();
     
     
     
+useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
     
+    
+    
+      useEffect(() => {
+    if (screenSize <= 900) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  }, [screenSize]);
+
+  const handleActiveMenu = () => setActiveMenu(!activeMenu);
+
     
     return (
-       <div className="flex justify-between p-2
-       md:mx-6 relative">
-       
-       
-       
-        <NavButton title="Menu" customFunc={() =>
+      <div className="flex justify-between p-2
+      md:mx-6 relative">
+      
+      
+    
+      
+        <NavButton title="Menu" customFunc={(handleActiveMenu) =>
         setActiveMenu ((prevActiveMenu) =>
         !prevActiveMenu)} color="blue" icon=
         {<AiOutlineMenu />}/>
@@ -62,10 +83,8 @@ const Navbar = () => {
        
        
             <TooltipComponent content="Profile" position="BottomCenter">
-          <div
-            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
-            onClick={() => handleClick('userProfile')}
-          >
+          <div className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
+            onClick={() => handleClick('userProfile')} >
             <img
               className="rounded-full w-8 h-8"
               src={avatar}

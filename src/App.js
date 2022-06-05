@@ -34,14 +34,11 @@ const { activeMenu, setActiveMenu } = useStateContext();
         
        <button
                 type="button"
-               
                 style={{background:'blue', borderRadius: '50%' }}
                 className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray"
               >
                 <FiSettings />
               </button>
-      
-      
         </TooltipComponent>
         </div>
         {activeMenu ?(
@@ -69,7 +66,7 @@ const { activeMenu, setActiveMenu } = useStateContext();
             navbar w-full">
             <Navbar />
             </div>
-        </div>
+       
        
        <div>
        
@@ -111,7 +108,7 @@ const { activeMenu, setActiveMenu } = useStateContext();
          </Routes>
          </div>
        
-       
+        </div>
         </div>
         </BrowserRouter>
         </div>
