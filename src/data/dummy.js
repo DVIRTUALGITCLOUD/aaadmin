@@ -639,7 +639,6 @@ export const earningData = [
     title: 'Sales',
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
-
     pcColor: 'green-600',
   },
   {
@@ -5862,6 +5861,15 @@ export const financialChartData = [
     close: 158.67,
     volume: 27939544,
   },
+
+
+
+  
+  
+
+
+
+
 ];
 export const PyramidData = [
   { x: 'Sweet Treats', y: 120, text: '120 cal' },
@@ -5871,3 +5879,14 @@ export const PyramidData = [
   { x: 'Fruits', y: 520, text: '520 cal' },
   { x: 'Bread, Rice, Pasta', y: 930, text: '930 cal' },
 ];
+
+
+
+
+export const chek = [
+  {
+    
+  }
+  ]
+  
+  
